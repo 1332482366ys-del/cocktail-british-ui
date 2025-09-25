@@ -131,7 +131,7 @@ function addCard(it) {
   const sub = node.querySelector('.sub');
   const badges = node.querySelector('.badges');
 
-  title.textContent = it.localName || '';
+  title.innerHTML = (it.localName || '').replace(/\n/g, '<br>');
   sub.innerHTML = [it.name, it.jpName].filter(Boolean).join('\n');
   img.src = it.image || 'assets/images/placeholder.svg';
   img.onerror = () => img.src = 'assets/images/placeholder.svg';

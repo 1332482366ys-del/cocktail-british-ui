@@ -137,7 +137,7 @@
   {
     "id": 8,
     "name": "Martinez (No.4)",
-    "localName": "马丁内斯（4号配方）",
+    "localName": "马丁内斯\n（4号配方）",
     "jpName": "マーティーネズ（4番目レシピ）",
     "category": "Gin",
     "baseSpirit": "金酒",
@@ -251,7 +251,7 @@
   {
     "id": 14,
     "name": "Hanky Panky",
-    "localName": "阴谋诡计（翻云覆雨）",
+    "localName": "阴谋诡计\n（翻云覆雨）",
     "jpName": "ハンキー・パンキー",
     "category": "Gin",
     "baseSpirit": "金酒",
@@ -288,7 +288,7 @@
   {
     "id": 16,
     "name": "Last Word",
-    "localName": "最后一语（遗言）",
+    "localName": "最后一语\n（遗言）",
     "jpName": "ラースト・ワード",
     "category": "Gin",
     "baseSpirit": "金酒",
@@ -606,7 +606,7 @@
   {
     "id": 32,
     "name": "Vesper (007 Martini)",
-    "localName": "维斯帕（007马天尼）",
+    "localName": "维斯帕\n（007马天尼）",
     "jpName": "ベスパー(007マーティーニー)",
     "category": "Gin",
     "baseSpirit": "金酒",
@@ -705,7 +705,7 @@
   {
     "id": 37,
     "name": "Corpse Reviver No.2",
-    "localName": "死而复生（2号配方）",
+    "localName": "死而复生\n（2号配方）",
     "jpName": "コープス・リーバイバー（2番目レシピ）",
     "category": "Gin",
     "baseSpirit": "金酒",
@@ -1315,7 +1315,7 @@
   {
     "id": 201,
     "name": "Kangaroo Cocktail (Vodkatini)",
-    "localName": "袋鼠鸡尾酒（伏特加马天尼）",
+    "localName": "袋鼠鸡尾酒\n（伏特加马天尼）",
     "jpName": "キャンガルー・カクテル（ウォッカティーニ）",
     "category": "Vodka",
     "baseSpirit": "伏特加",
@@ -1839,7 +1839,7 @@
   {
     "id": 307,
     "name": "Daiquiri",
-    "localName": "得其利（大吉利）",
+    "localName": "得其利\n（大吉利）",
     "jpName": "ダキリー",
     "category": "Rum",
     "baseSpirit": "朗姆",
@@ -2486,7 +2486,7 @@
   {
     "id": 505,
     "name": "Corpse Reviver No.1",
-    "localName": "死而复生 (1号配方)",
+    "localName": "死而复生\n(1号配方)",
     "jpName": "コープス・リーバイバー（1番目レシピ）",
     "category": "Brandy",
     "baseSpirit": "白兰地",
@@ -3005,7 +3005,7 @@
   {
     "id": 616,
     "name": "Adonis",
-    "localName": "阿多尼斯（美少男）",
+    "localName": "阿多尼斯\n（美少男）",
     "jpName": "アドニス",
     "category": "Other",
     "baseSpirit": "雪莉",
@@ -3152,7 +3152,7 @@
   },
   {
     "id": 708,
-    "name": "Ensi Lumi (森の淡雪)",
+    "name": "Ensi Lumi\n (森の淡雪)",
     "localName": "苍森淡雪",
     "jpName": "エンシー・ルミー（もりのあわゆき）",
     "category": "Mori Bar Originals",

@@ -189,7 +189,8 @@ dialog::backdrop {background:rgba(0,0,0,.6);}
   .dHead {padding:8px;gap:6px;}
   .dHead img {
     aspect-ratio:2/3;width:auto;max-width:100%;height:auto;max-height:70vh;
-    object-fit:contain;background:#000;
+    object-fit:contain;background:#000; transform: scale(0.67);   /* 缩小 1/1.5 ≈ 0.67 倍 */
+    transform-origin: top center;  /* 缩放锚点设为上中，让图片不跑偏 */
   }
   .dTitle h2 {font-size:16px;}
   .dBody {padding:8px;}
