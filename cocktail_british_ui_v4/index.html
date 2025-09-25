@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>鸡尾酒清单 · 英式风格版</title>
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🍸 鸡尾酒清单 · 英式风格版</div>
+    <div class="actions">
+      <button id="darkToggle" aria-label="切换主题">🌓</button>
+      <button id="favTabBtn" class="pill">❤ 收藏</button>
+      <a href="#" id="resetBtn" class="pill">重置筛选</a>
+    </div>
+  </header>
+
+  <section class="controls">
+    <div class="searchWrap">
+      <input id="q" placeholder="Ctrl/⌘+K 搜索：名称 / 基酒 / 配料 / 标签" />
+    </div>
+    <div class="grid-3">
+      <label>基酒与分类
+        <select id="cat"></select>
+      </label>
+      <label>ABV 档位
+        <select id="abvLevel">
+          <option value="all">全部</option>
+          <option value="low">低度鸡尾酒 (≤15%)</option>
+          <option value="mid">中度鸡尾酒 (15% < ABV ≤ 28%)</option>
+          <option value="high">高度鸡尾酒 (28% < ABV ≤ 38%)</option>
+          <option value="strong">烈酒鸡尾酒 (>38%)</option>
+        </select>
+      </label>
+      <label>排序
+        <select id="sort">
+          <option value="id-asc">录入顺序</option>
+          <option value="abv-asc">度数低到高</option>
+          <option value="abv-desc">度数高到低</option>
+        </select>
+      </label>
+    </div>
+    <div class="tagCloud" id="tagCloud"></div>
+  </section>
+
+  <main class="results">
+    <div><strong id="count"></strong></div>
+    <section id="cards" class="cards"></section>
+  </main>
+
+  <dialog id="detail">
+    <button id="closeDetail" class="close">×</button>
+    <div class="dHead">
+      <img id="dImg" alt="" />
+      <div class="dTitle">
+        <h2 id="dName"></h2>
+        <div id="dSub" class="sub"></div>
+        <div id="dBadges" class="badges"></div>
+      </div>
+    </div>
+    <div class="dBody">
+      <p><strong>基酒：</strong><span id="dBase"></span></p>
+      <p><strong>配料：</strong><span id="dIngs"></span></p>
+      <p><strong>标签：</strong><span id="dTags"></span></p>
+      
+      <p><strong>介绍：</strong>
+        <button class="pill" id="openDescBtn">查看简介</button>
+      </p>
+
+    </div>
+  </dialog>
+
+  <dialog id="descModal">
+  <button id="closeDesc" class="close">×</button>
+  <div class="descBody">
+    <h2>鸡尾酒简介</h2>
+    <p id="descText"></p>
+  </div>
+</dialog>
+
+
+  <template id="cardTpl">
+    <article class="card">
+      <button class="favBtn" title="收藏">❤</button>
+      <img class="thumb" alt="">
+      <div class="info">
+        <h3 class="title"></h3>
+        <div class="sub"></div>
+        <div class="badges"></div>
+      </div>
+    </article>
+  </template>
+
+  <script type="module" src="./app.js"></script>
+
+  <button id="backToTop">↑</button>
+
+</body>
+</html>
