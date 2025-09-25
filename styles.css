@@ -198,3 +198,12 @@ dialog::backdrop {background:rgba(0,0,0,.6);}
   #descModal .descBody {font-size:12px;line-height:1.4;}
   #descModal h2 {font-size:16px;}
 }
+.site-author {
+  text-align:center;
+  padding:6px;
+  font-size:14px;
+  font-family:Georgia, serif;
+  color:var(--muted);
+  background:var(--panel);
+  border-bottom:1px solid var(--bd);
+}
