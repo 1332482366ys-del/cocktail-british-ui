@@ -86,7 +86,11 @@ dialog {
 dialog::backdrop {background:rgba(0,0,0,.6);}
 .close {position:absolute;right:14px;top:10px;border:0;background:transparent;color:var(--muted);font-size:26px;cursor:pointer;}
 .dHead {display:grid;grid-template-columns:300px 1fr;gap:20px;padding:20px;border-bottom:1px solid var(--bd);}
-.dHead img {width:100%;height:auto;max-height:400px;object-fit:cover;border-radius:8px;border:1px solid var(--bd);}
+.dHead img {
+  width:100%;height:auto;max-height:80vh;
+  object-fit:contain;background:#000;
+  border-radius:8px;border:1px solid var(--bd);
+}
 .dTitle h2 {margin:0 0 10px 0;font-size:30px;color:var(--accent);}
 .dBody {padding:16px 20px;}
 .dBody p {margin:.8rem 0;font-size:18px;}
@@ -128,15 +132,22 @@ dialog::backdrop {background:rgba(0,0,0,.6);}
   #descModal h2 {font-size:18px;}
 }
 
-/* 手机端（≤480px）：左右结构，缩小 */
+/* 手机端（≤480px）：保持左右结构 + 图片完整显示 */
 @media (max-width: 480px) {
   .cards {gap:10px; padding:10px;}
   .card {
     flex-direction:row;
-    height:140px;
+    height:auto;
+    min-height:140px;
     border-radius:8px;
   }
-  .thumb {width:40%;height:100%;object-fit:cover;}
+  .thumb {
+    width:40%;
+    height:auto;
+    aspect-ratio:2/3;
+    object-fit:contain;
+    background:#000;
+  }
   .info {flex:1;padding:6px;display:flex;flex-direction:column;justify-content:center;}
   .title {font-size:14px;}
   .sub {font-size:11px;line-height:1.3;}
@@ -150,7 +161,13 @@ dialog::backdrop {background:rgba(0,0,0,.6);}
 
   dialog {width:96vw;max-width:96vw;}
   .dHead {padding:8px;gap:6px;}
-  .dHead img {max-height:140px;}
+  .dHead img {
+    max-height:70vh;
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    background:#000;
+  }
   .dTitle h2 {font-size:16px;}
   .dBody {padding:8px;}
   .dBody p {font-size:12px;}
