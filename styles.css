@@ -68,11 +68,11 @@ body {
 .badges {display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
 .badge {font-size:16px;border:1px solid var(--bd);padding:4px 10px;border-radius:6px;color:var(--muted);font-family:Georgia,serif;}
 
-/* 收藏按钮 */
+/* 收藏按钮（SVG 心形） */
 .favBtn {
   position:absolute;
   top:10px;
-  right:10px;       /* ✅ 固定右上角 */
+  right:10px;
   background:transparent;
   border:none;
   cursor:pointer;
@@ -82,22 +82,12 @@ body {
   z-index:2;
   padding:0;
 }
-
 .favBtn:hover {opacity:0.8;}
 .favBtn.active {color:red; opacity:1;}
-
-/* SVG 图标跟随按钮颜色 */
 .favBtn .icon-heart {
   width:22px;
   height:22px;
-  fill:currentColor;  /* ✅ 使用按钮文字颜色 */
-}
-
-@media (max-width: 480px) {
-  .favBtn .icon-heart {
-    width:16px;
-    height:16px;      /* ✅ 手机上缩小 */
-  }
+  fill:currentColor;  /* ✅ 颜色跟随按钮 */
 }
 
 /* 弹窗（详情页） */
@@ -155,12 +145,12 @@ dialog::backdrop {background:rgba(0,0,0,.6);}
   #descModal h2 {font-size:18px;}
 }
 
-/* 手机端（≤480px）：两列 + 左右结构 */
+/* 手机端（≤480px） */
 @media (max-width: 480px) {
   .actions {
     display:flex;
-    flex-direction:row;   /* 横排 */
-    flex-wrap:nowrap;     /* 禁止换行 */
+    flex-direction:row;
+    flex-wrap:nowrap;
     gap:8px;
     align-items:center;
   }
@@ -187,23 +177,24 @@ dialog::backdrop {background:rgba(0,0,0,.6);}
 
   dialog {width:96vw;max-width:96vw;}
   .dHead {padding:8px;gap:6px;}
-  .dHead img {
-    aspect-ratio:2/3;width:auto;max-width:100%;height:auto;max-height:70vh;
-    object-fit:contain;background:#000; transform: scale(0.67);   /* 缩小 1/1.5 ≈ 0.67 倍 */
-    transform-origin: top center;  /* 缩放锚点设为上中，让图片不跑偏 */
+
+  /* ✅ 整个详情页缩小一倍 */
+  #detail {
+    transform: scale(0.5);
+    transform-origin: top center;
   }
+
+  /* ✅ 图片单独再缩小到 1/3 */
+  .dHead img {
+    transform: scale(0.33);
+    transform-origin: top center;
+  }
+
   .dTitle h2 {font-size:16px;}
   .dBody {padding:8px;}
   .dBody p {font-size:12px;}
 
   #descModal {width:96vw;padding:8px;}
   #descModal .descBody {font-size:12px;line-height:1.4;}
-  #descModal h2 {font-size:14px;}
+  #descModal h2 {font-size:16px;}
 }
-#favTabBtn {
-  color:red !important;
-}
-
-
-
-
