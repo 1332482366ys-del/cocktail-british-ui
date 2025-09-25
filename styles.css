@@ -70,14 +70,35 @@ body {
 
 /* 收藏按钮 */
 .favBtn {
-  position:absolute;top:10px;right:10px;font-size:22px;
-  background:transparent;border:none;cursor:pointer;
-  color:#888;opacity:0.5;
+  position:absolute;
+  top:10px;
+  right:10px;       /* ✅ 固定右上角 */
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  color:#888;       /* 默认灰色 */
+  opacity:0.5;
   transition:color 0.3s, opacity 0.3s;
   z-index:2;
+  padding:0;
 }
+
 .favBtn:hover {opacity:0.8;}
-.favBtn.active {color:red;opacity:1;}
+.favBtn.active {color:red; opacity:1;}
+
+/* SVG 图标跟随按钮颜色 */
+.favBtn .icon-heart {
+  width:22px;
+  height:22px;
+  fill:currentColor;  /* ✅ 使用按钮文字颜色 */
+}
+
+@media (max-width: 480px) {
+  .favBtn .icon-heart {
+    width:16px;
+    height:16px;      /* ✅ 手机上缩小 */
+  }
+}
 
 /* 弹窗（详情页） */
 dialog {
@@ -181,3 +202,7 @@ dialog::backdrop {background:rgba(0,0,0,.6);}
 #favTabBtn {
   color:red !important;
 }
+
+
+
+
