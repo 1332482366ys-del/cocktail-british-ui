@@ -198,12 +198,30 @@ dialog::backdrop {background:rgba(0,0,0,.6);}
   #descModal .descBody {font-size:12px;line-height:1.4;}
   #descModal h2 {font-size:16px;}
 }
-.site-author {
-  text-align:center;
-  padding:6px;
-  font-size:14px;
-  font-family:Georgia, serif;
-  color:var(--muted);
-  background:var(--panel);
-  border-bottom:1px solid var(--bd);
+/* 顶部固定横幅 */
+/* 顶部固定横幅 */
+.site-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #003366;      /* ✅ 深蓝色背景 */
+  color: #fff;
+  font-size: 16px;
+  font-family: Georgia, serif;
+  padding: 8px 0;
+  z-index: 3000;
+  box-sizing: border-box;
+  text-align: center;
 }
+
+
+
+/* 避免内容被遮挡 */
+body {
+  margin-top: 40px;  /* 根据 banner 实际高度调整 */
+}
+
