@@ -131,7 +131,7 @@ function addCard(it) {
   const sub = node.querySelector('.sub');
   const badges = node.querySelector('.badges');
 
-  title.innerHTML = (it.localName || '').replace(/\n/g, '<br>');
+  title.textContent = it.localName || '';
   sub.innerHTML = [it.name, it.jpName].filter(Boolean).join('\n');
   img.src = it.image || 'assets/images/placeholder.svg';
   img.onerror = () => img.src = 'assets/images/placeholder.svg';
@@ -144,36 +144,8 @@ function addCard(it) {
   // 点击卡片打开详情
   el.addEventListener('click', () => openDetail(it));
 
-  // 收藏按钮 (SVG 图标)
-  const favBtnEl = document.createElement('button');
-  favBtnEl.className = 'favBtn';
-  favBtnEl.innerHTML = `
-    <svg viewBox="0 0 24 24" class="icon-heart">
-      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
-               2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
-               C13.09 3.81 14.76 3 16.5 3
-               19.58 3 22 5.42 22 8.5
-               c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-    </svg>
-  `;
-  if (state.favorites.has(it.id)) favBtnEl.classList.add('active');
-  favBtnEl.addEventListener('click', e => {
-    e.stopPropagation();
-    if (state.favorites.has(it.id)) {
-      state.favorites.delete(it.id);
-      favBtnEl.classList.remove('active');
-    } else {
-      state.favorites.add(it.id);
-      favBtnEl.classList.add('active');
-    }
-    localStorage.setItem('fav_ids', JSON.stringify([...state.favorites]));
-    render();
-  });
-  el.appendChild(favBtnEl);
-
   cards.appendChild(node);
 }
-
 
 function openDetail(it) {
   window.currentItem = it;
@@ -187,6 +159,44 @@ function openDetail(it) {
   if (it.baseSpirit) dBadges.innerHTML += `<span class="badge">${it.baseSpirit}</span>`;
   dImg.src = it.image || 'assets/images/placeholder.svg';
   dImg.onerror = () => dImg.src = 'assets/images/placeholder.svg';
+
+  // ✅ 详情页收藏按钮
+  let favBtn = document.getElementById('detailFavBtn');
+  if (!favBtn) {
+    favBtn = document.createElement('button');
+    favBtn.id = 'detailFavBtn';
+    favBtn.className = 'favBtn';
+    favBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" class="icon-heart">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+                 C13.09 3.81 14.76 3 16.5 3
+                 19.58 3 22 5.42 22 8.5
+                 c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+    `;
+    detail.appendChild(favBtn);
+
+    favBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      if (state.favorites.has(window.currentItem.id)) {
+        state.favorites.delete(window.currentItem.id);
+        favBtn.classList.remove('active');
+      } else {
+        state.favorites.add(window.currentItem.id);
+        favBtn.classList.add('active');
+      }
+      localStorage.setItem('fav_ids', JSON.stringify([...state.favorites]));
+    });
+  }
+
+  // 状态同步
+  if (state.favorites.has(it.id)) {
+    favBtn.classList.add('active');
+  } else {
+    favBtn.classList.remove('active');
+  }
+
   detail.showModal();
 }
 
@@ -198,6 +208,7 @@ document.addEventListener('click', e => {
   }
 });
 $('#closeDesc').addEventListener('click', () => $('#descModal').close());
+
 // 回到顶部
 const backToTop = $('#backToTop');
 if (backToTop) {
@@ -217,4 +228,3 @@ $('#descModal').addEventListener('click', e => {
     $('#descModal').close();
   }
 });
-
