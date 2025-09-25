@@ -95,7 +95,7 @@ body {
   cursor:pointer;
   color:var(--muted);
   font-family:Georgia,serif;
-  font-size:1.5em;
+  font-size:1.2em;
 }
 .tag.active {
   background:var(--accent);
@@ -209,12 +209,12 @@ dialog::backdrop {background:rgba(0,0,0,.6);}
 
 /* ✅ 详情页图片自适应，无白边 */
 .dHead img {
-  width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: cover;   /* PC 铺满，不留白 */
-  border-radius: 8px;
-  border: 1px solid var(--bd);
+  width:100%;
+  height:auto;
+  max-height:400px;
+  object-fit:cover;
+  border-radius:8px;
+  border:1px solid var(--bd);
 }
 
 .dTitle h2 {
@@ -279,34 +279,50 @@ dialog::backdrop {background:rgba(0,0,0,.6);}
 
 /* 📱 手机端响应式 */
 @media (max-width: 768px) {
-  /* 控制区单列 */
-  .grid-3 {grid-template-columns:1fr;}
-  
-  /* 卡片竖排 */
+  /* 控制区 */
+  .controls {padding:10px;}
+
+  /* 卡片竖排，缩小 */
   .card {
     flex-direction:column;
     height:auto;
   }
   .thumb {
     width:100%;
-    height:auto;
+    max-height:160px;
+    object-fit:cover;
   }
-  .info {padding:12px;}
-  .title {font-size:20px;}
-  .sub {font-size:14px;}
-  .badge {font-size:13px;padding:2px 8px;}
+  .info {padding:8px;}
+  .title {font-size:16px;}
+  .sub {font-size:13px;}
+  .badge {font-size:12px;padding:2px 6px;}
 
-  /* 简介弹窗缩小 */
-  #descModal .descBody {
-    font-size:16px;
-    line-height:1.6;
+  /* 详情页 */
+  dialog {
+    width:95vw;
+    max-width:95vw;
   }
-  #descModal h2 {font-size:20px;}
-
-  /* 详情页图片改回 contain，避免小屏裁切太多 */
-  .dHead {grid-template-columns:1fr;}
+  .dHead {
+    grid-template-columns:1fr;
+    gap:10px;
+    padding:10px;
+  }
   .dHead img {
-    max-height:260px;
-    object-fit: contain;
+    max-height:200px;
+    object-fit:contain;
   }
+  .dBody {padding:10px;}
+  .dBody p {font-size:14px;}
+
+  /* 简介弹窗 */
+  #descModal {
+    width:95vw;
+    max-width:95vw;
+    padding:12px;
+  }
+  #descModal .descBody {
+    font-size:14px;
+    line-height:1.5;
+  }
+  #descModal h2 {font-size:18px;}
 }
